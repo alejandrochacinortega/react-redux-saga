@@ -1,13 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { deletePost } from '../actions/index';
 
 class PostsList extends React.Component {
 
+
     renderPosts(post, index) {
-        console.log(' post ', post);
         return (
             <tr key={index}>
                 <td>{post.get('name')}</td>
+                <td>
+                    <button className="btn btn-danger"
+                            onClick={() => this.props.deletePost(index)}
+                    >delete</button>
+                </td>
             </tr>
         )
     }
@@ -19,6 +25,7 @@ class PostsList extends React.Component {
             </tr>
         )
     }
+
 
     render() {
         let areTherePosts = this.props.posts.toJS().length > 0;
@@ -32,7 +39,7 @@ class PostsList extends React.Component {
                     </tr>
                     </thead>
                     <tbody>
-                    { areTherePosts ? this.props.posts.map(this.renderPosts) : this.noPost()}
+                    { areTherePosts ? this.props.posts.map(this.renderPosts.bind(this)) : this.noPost()}
                     </tbody>
                 </table>
             </div>
@@ -47,4 +54,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(PostsList);
+export default connect(mapStateToProps, {deletePost})(PostsList);
