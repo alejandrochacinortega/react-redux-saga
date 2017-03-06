@@ -4,9 +4,9 @@ import {fetchUsers} from '../actions/index';
 
 class UsersList extends React.Component {
 
-    renderUser(user) {
+    renderUser(user, index) {
         return (
-            <tr key={user.get('name')}>
+            <tr key={index}>
                 <td>{user.get('name')}</td>
             </tr>
         )
@@ -17,11 +17,15 @@ class UsersList extends React.Component {
     }
 
     render() {
-        console.log(' users ', this.props.users);
         return (
             <div>
                 <h4>List of users</h4>
                 <table className="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                    </thead>
                     <tbody>
                     {this.props.users.map(this.renderUser)}
                     </tbody>
