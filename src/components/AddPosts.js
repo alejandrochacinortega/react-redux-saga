@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addUser } from '../actions/index';
 
-class AddUser extends React.Component {
+class AddPosts extends React.Component {
 
     render() {
         return (
@@ -12,4 +12,4 @@ class AddUser extends React.Component {
 
 }
 
-export default connect(null, { addUser })(AddUser);
+export default connect(null, { addUser })(AddPosts);

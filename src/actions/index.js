@@ -3,6 +3,7 @@ import Immutable from 'immutable';
 
 export const FETCH_USERS =  'FETCH_USERS';
 export const ADD_USER = 'ADD_USER';
+export const ADD_USER_SUCCEEDED = "ADD_USER_SUCCEEDED";
 
 export function fetchUsers() {
     const URL = "https://jsonplaceholder.typicode.com/users";
@@ -15,11 +16,11 @@ export function fetchUsers() {
 }
 
 export function addUser(user) {
-    console.log(' action ');  
+    console.log(' ACTIONS ADDING USER ', );
     return {
         type: ADD_USER,
-        payload: Immutable.fromJS({
+        payload: {
             name: "NEW USER"
-        })
+        }
     }
 }

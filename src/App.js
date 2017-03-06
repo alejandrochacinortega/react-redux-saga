@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import './App.css';
 
 import UsersList from './components/UsersList';
-import AddUser from './components/AddUser';
+import AddPosts from './components/AddPosts';
+import PostsList from './components/PostsList';
 
 class App extends Component {
   render() {
     return (
       <div className="container">
+        <PostsList />
+        <AddPosts/>
+        <hr/>
         <UsersList />
-        <AddUser/>
+        <hr/>
       </div>
     );
   }
