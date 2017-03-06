@@ -15,7 +15,7 @@ class PostsList extends React.Component {
     noPost() {
         return (
             <tr>
-                <td>Add a new post</td>
+                <td>You have not added any post... yet</td>
             </tr>
         )
     }
@@ -23,16 +23,19 @@ class PostsList extends React.Component {
     render() {
         let areTherePosts = this.props.posts.toJS().length > 0;
         return (
-            <table className="table">
-                <thead>
+            <div>
+                <h4>List of posts</h4>
+                <table className="table">
+                    <thead>
                     <tr>
                         <th>Posts</th>
                     </tr>
-                </thead>
-                <tbody>
-                { areTherePosts ? this.props.posts.map(this.renderPosts) : this.noPost()}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    { areTherePosts ? this.props.posts.map(this.renderPosts) : this.noPost()}
+                    </tbody>
+                </table>
+            </div>
         )
     }
 

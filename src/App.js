@@ -9,8 +9,9 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <PostsList />
         <AddPosts/>
+        <hr/>
+        <PostsList />
         <hr/>
         <UsersList />
         <hr/>

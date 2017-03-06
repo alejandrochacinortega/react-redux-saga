@@ -15,12 +15,11 @@ export function fetchUsers() {
     }
 }
 
-export function addUser(user) {
-    console.log(' ACTIONS ADDING USER ', );
+export function addPost(post) {
     return {
         type: ADD_USER,
         payload: {
-            name: "NEW USER"
+            name: post
         }
     }
 }
