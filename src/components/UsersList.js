@@ -1,24 +1,31 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { fetchUsers } from '../actions/index';
+import {connect} from 'react-redux';
+import {fetchUsers} from '../actions/index';
 
 class UsersList extends React.Component {
 
     renderUser(user) {
         return (
-            <p key={user.get('name')}>{user.get('name')}</p>
+            <tr key={user.get('name')}>
+                <td>{user.get('name')}</td>
+            </tr>
         )
     }
-    
+
     componentWillMount() {
         this.props.fetchUsers();
     }
 
     render() {
-        console.log(' users ', this.props.users);  
+        console.log(' users ', this.props.users);
         return (
             <div>
-                {this.props.users.map(this.renderUser)}
+                <h4>List of users</h4>
+                <table className="table">
+                    <tbody>
+                    {this.props.users.map(this.renderUser)}
+                    </tbody>
+                </table>
             </div>
         )
     }
@@ -31,4 +38,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { fetchUsers })(UsersList);
+export default connect(mapStateToProps, {fetchUsers})(UsersList);
